@@ -1,97 +1,97 @@
 # Smart Growth Blog Bot
 
-Automated blog content generator aur publisher — Groq AI se content generate karta hai aur khud-ba-khud Blogger par publish karta hai, GitHub Actions ke zariye har hafte.
+An automated blog content generator and publisher — generates content using Groq AI and automatically publishes it to Blogger every week via GitHub Actions.
 
 **Blog:** Smart Growth: AI — [smartcareerai.blogspot.com](https://smartcareerai.blogspot.com/)
 
 ---
 
-## Ye system kya karta hai
+## What this system does
 
-1. `topics.json` se agla pending topic uthata hai (AI & Technology, Education & Career, Personal Finance — rotation me)
-2. Groq API (model: `openai/gpt-oss-120b`) se poora blog post generate karta hai
-3. Blogger API v3 ke zariye directly live publish kar deta hai
-4. `topics.json` aur `publish_log.json` update kar deta hai taake track rahe kya publish ho chuka hai
-5. **GitHub Actions** har Tuesday, subah 10:00 AM (Pakistan time) par ye poora process khud chalata hai — koi manual kaam nahi
-
----
-
-## Files ka kaam
-
-| File | Kaam |
-|------|------|
-| `main.py` | Asal script — sab kuch isi ko chalana hai |
-| `content_generator.py` | Groq API se content generate karta hai |
-| `blogger_publish.py` | Blogger par publish karta hai |
-| `blogger_auth.py` | Ek-baar wali authorization (setup ke waqt) |
-| `list_my_blogs.py` | Blog ID nikalne ke liye (setup ke waqt) |
-| `topics.json` | 18-hafton ki topics list, status ke sath |
-| `publish_log.json` | Kaunse blogs kab publish hue, uska record |
-| `.github/workflows/publish-blog.yml` | GitHub Actions ka schedule |
+1. Picks the next pending topic from `topics.json` (rotates through AI & Technology, Education & Career, and Personal Finance)
+2. Generates a complete blog post using the Groq API (model: `openai/gpt-oss-120b`)
+3. Publishes it live directly via the Blogger API v3
+4. Updates `topics.json` and `publish_log.json` to keep track of what has been published
+5. **GitHub Actions** runs this whole process automatically every Tuesday at 10:00 AM (Pakistan time) — no manual work needed
 
 ---
 
-## Local setup (pehli baar, apne computer par)
+## What each file does
 
-1. Python install karein (agar nahi hai)
-2. Is repo ko clone/download karein
-3. `client_secret_blogger.json` (Google Cloud se) is folder me daalein
-4. Terminal me:
+| File | Purpose |
+|------|---------|
+| `main.py` | The main script — this is the one you run |
+| `content_generator.py` | Generates content using the Groq API |
+| `blogger_publish.py` | Publishes the post to Blogger |
+| `blogger_auth.py` | One-time authorization script (used only during setup) |
+| `list_my_blogs.py` | Fetches your Blog ID (used only during setup) |
+| `topics.json` | The 18-week topic list, along with publish status |
+| `publish_log.json` | A record of what was published and when |
+| `.github/workflows/publish-blog.yml` | The GitHub Actions schedule |
+
+---
+
+## Local setup (first-time, on your own computer)
+
+1. Install Python (if not already installed)
+2. Clone/download this repository
+3. Place your `client_secret_blogger.json` (from Google Cloud) in this folder
+4. In the terminal, run:
    ```
    pip install -r requirements.txt
    ```
-5. Blogger authorize karein (sirf ek baar):
+5. Authorize Blogger access (only needs to be done once):
    ```
    python blogger_auth.py
    ```
-   Ye `token_blogger.json` bana dega.
-6. Blog ID confirm karein:
+   This will create `token_blogger.json`.
+6. Confirm your Blog ID:
    ```
    python list_my_blogs.py
    ```
-7. `.env.example` ko rename kar ke `.env` banayein, usme apni Groq API key daalein:
+7. Rename `.env.example` to `.env` and add your Groq API key:
    ```
-   GROQ_API_KEY=aapki_asal_key
+   GROQ_API_KEY=your_actual_key_here
    ```
-8. Test run karein:
+8. Run a test:
    ```
    python main.py
    ```
 
 ---
 
-## GitHub Actions setup (automation ke liye)
+## GitHub Actions setup (for automation)
 
-Repository ke **Settings → Secrets and variables → Actions** me ye 2 secrets add karein:
+In the repository, go to **Settings → Secrets and variables → Actions** and add these 2 secrets:
 
 | Secret Name | Value |
 |-------------|-------|
-| `GROQ_API_KEY` | Aapki Groq API key |
-| `BLOGGER_TOKEN_JSON` | Aapki `token_blogger.json` file ka poora content |
+| `GROQ_API_KEY` | Your Groq API key |
+| `BLOGGER_TOKEN_JSON` | The full contents of your `token_blogger.json` file |
 
-Iske baad workflow khud Tuesday subah chalega. Manual test ke liye: **Actions tab → Weekly Blog Publish → Run workflow**
+Once added, the workflow will automatically run every Tuesday morning. To test it manually: go to the **Actions tab → Weekly Blog Publish → Run workflow**.
 
 ---
 
-## ⚠️ Zaroori — kabhi share/upload na karein
+## ⚠️ Important — never share or upload these
 
 - `client_secret_blogger.json`
 - `token_blogger.json`
-- `.env` (asal Groq key wali)
+- `.env` (the one with your real Groq key)
 
-Ye sab `.gitignore` me already exclude hain, lekin dhyan rakhna zaroori hai.
+These are already excluded via `.gitignore`, but it's still important to be careful.
 
 ---
 
-## Medium ke baare me
+## About Medium
 
-Medium ka official API 2023 se deprecated hai aur naye accounts ke liye integration token nahi milta — is liye Medium par publishing filhal **manual** hai. Content generate ho kar ready rakha ja sakta hai, phir copy-paste kar ke Medium par publish karna hota hai.
+Medium's official API has been deprecated since 2023, and new accounts can no longer generate integration tokens — so publishing to Medium is currently a **manual** step. Content can still be generated and kept ready, then copy-pasted to publish on Medium.
 
 ---
 
 ## Content niche
 
-**Smart Growth: AI, Career & Money** — teen categories rotate hoti hain:
+**Smart Growth: AI, Career & Money** — content rotates across three categories:
 - 🤖 AI & Technology
 - 🎓 Education & Career
 - 💰 Personal Finance
