@@ -1,20 +1,111 @@
 [
-  {"week": 1, "category": "AI & Technology", "topic": "5 AI Tools Every Student Should Know in 2026", "status": "pending"},
-  {"week": 2, "category": "Education & Career", "topic": "How to Build a Career Roadmap in Any Field", "status": "pending"},
-  {"week": 3, "category": "Personal Finance", "topic": "Simple Budgeting Method for Beginners", "status": "pending"},
-  {"week": 4, "category": "AI & Technology", "topic": "How AI is Changing the Job Market - What to Expect", "status": "pending"},
-  {"week": 5, "category": "Education & Career", "topic": "Top In-Demand Skills for 2026 Job Market", "status": "pending"},
-  {"week": 6, "category": "Personal Finance", "topic": "How to Save Money on a Student/Entry-Level Salary", "status": "pending"},
-  {"week": 7, "category": "AI & Technology", "topic": "Beginner's Guide to Using AI for Daily Productivity", "status": "pending"},
-  {"week": 8, "category": "Education & Career", "topic": "How to Prepare for Interviews Like a Pro", "status": "pending"},
-  {"week": 9, "category": "Personal Finance", "topic": "Side Income Ideas for Working Professionals", "status": "pending"},
-  {"week": 10, "category": "AI & Technology", "topic": "AI vs Traditional Learning: Which Helps You Grow Faster?", "status": "pending"},
-  {"week": 11, "category": "Education & Career", "topic": "Free vs Paid Online Courses - Which Is Worth It?", "status": "pending"},
-  {"week": 12, "category": "Personal Finance", "topic": "Common Money Mistakes Young Professionals Make", "status": "pending"},
-  {"week": 13, "category": "AI & Technology", "topic": "Top Free AI Apps for Career Development", "status": "pending"},
-  {"week": 14, "category": "Education & Career", "topic": "How to Switch Careers Without Starting From Zero", "status": "pending"},
-  {"week": 15, "category": "Personal Finance", "topic": "How to Build an Emergency Fund From Scratch", "status": "pending"},
-  {"week": 16, "category": "AI & Technology", "topic": "How to Use AI Responsibly Without Losing Critical Thinking", "status": "pending"},
-  {"week": 17, "category": "Education & Career", "topic": "Building a Resume That Actually Gets Noticed", "status": "pending"},
-  {"week": 18, "category": "Personal Finance", "topic": "Smart Money Habits That Compound Over Time", "status": "pending"}
+  {
+    "week": 1,
+    "category": "AI & Technology",
+    "topic": "5 AI Tools Every Student Should Know in 2026",
+    "status": "published",
+    "published_at": "2026-09-12T21:27:34.354010"
+  },
+  {
+    "week": 2,
+    "category": "Education & Career",
+    "topic": "How to Build a Career Roadmap in Any Field",
+    "status": "pending"
+  },
+  {
+    "week": 3,
+    "category": "Personal Finance",
+    "topic": "Simple Budgeting Method for Beginners",
+    "status": "pending"
+  },
+  {
+    "week": 4,
+    "category": "AI & Technology",
+    "topic": "How AI is Changing the Job Market - What to Expect",
+    "status": "pending"
+  },
+  {
+    "week": 5,
+    "category": "Education & Career",
+    "topic": "Top In-Demand Skills for 2026 Job Market",
+    "status": "pending"
+  },
+  {
+    "week": 6,
+    "category": "Personal Finance",
+    "topic": "How to Save Money on a Student/Entry-Level Salary",
+    "status": "pending"
+  },
+  {
+    "week": 7,
+    "category": "AI & Technology",
+    "topic": "Beginner's Guide to Using AI for Daily Productivity",
+    "status": "pending"
+  },
+  {
+    "week": 8,
+    "category": "Education & Career",
+    "topic": "How to Prepare for Interviews Like a Pro",
+    "status": "pending"
+  },
+  {
+    "week": 9,
+    "category": "Personal Finance",
+    "topic": "Side Income Ideas for Working Professionals",
+    "status": "pending"
+  },
+  {
+    "week": 10,
+    "category": "AI & Technology",
+    "topic": "AI vs Traditional Learning: Which Helps You Grow Faster?",
+    "status": "pending"
+  },
+  {
+    "week": 11,
+    "category": "Education & Career",
+    "topic": "Free vs Paid Online Courses - Which Is Worth It?",
+    "status": "pending"
+  },
+  {
+    "week": 12,
+    "category": "Personal Finance",
+    "topic": "Common Money Mistakes Young Professionals Make",
+    "status": "pending"
+  },
+  {
+    "week": 13,
+    "category": "AI & Technology",
+    "topic": "Top Free AI Apps for Career Development",
+    "status": "pending"
+  },
+  {
+    "week": 14,
+    "category": "Education & Career",
+    "topic": "How to Switch Careers Without Starting From Zero",
+    "status": "pending"
+  },
+  {
+    "week": 15,
+    "category": "Personal Finance",
+    "topic": "How to Build an Emergency Fund From Scratch",
+    "status": "pending"
+  },
+  {
+    "week": 16,
+    "category": "AI & Technology",
+    "topic": "How to Use AI Responsibly Without Losing Critical Thinking",
+    "status": "pending"
+  },
+  {
+    "week": 17,
+    "category": "Education & Career",
+    "topic": "Building a Resume That Actually Gets Noticed",
+    "status": "pending"
+  },
+  {
+    "week": 18,
+    "category": "Personal Finance",
+    "topic": "Smart Money Habits That Compound Over Time",
+    "status": "pending"
+  }
 ]
