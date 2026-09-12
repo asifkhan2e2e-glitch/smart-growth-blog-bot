@@ -1,0 +1,43 @@
+name: Weekly Blog Publish
+
+on:
+  # Har Tuesday subah 10:00 AM Pakistan time (5:00 AM UTC) par khud chalega
+  # (data ke mutabiq Tuesday + subah ka waqt sabse zyada traffic laata hai)
+  schedule:
+    - cron: '0 5 * * 2'
+
+  # Ye line manual "Run workflow" button bhi deti hai GitHub par, testing ke liye
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository checkout karein
+        uses: actions/checkout@v4
+
+      - name: Python setup karein
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Dependencies install karein
+        run: pip install -r requirements.txt
+
+      - name: Blog generate aur publish karein
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          BLOGGER_TOKEN_JSON: ${{ secrets.BLOGGER_TOKEN_JSON }}
+        run: python main.py
+
+      - name: Topic status aur log GitHub par save karein
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add topics.json publish_log.json
+          git commit -m "Auto-publish: topic status update" || echo "Koi naya change nahi tha"
+          git push
