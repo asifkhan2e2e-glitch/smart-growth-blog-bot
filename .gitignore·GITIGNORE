@@ -1,0 +1,10 @@
+# Ye files GitHub par KABHI upload nahi honi chahiye (secrets hain)
+.env
+client_secret_blogger.json
+token_blogger.json
+
+# Python ki common junk files
+__pycache__/
+*.pyc
+.venv/
+venv/
