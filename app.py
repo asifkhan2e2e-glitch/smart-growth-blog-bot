@@ -105,7 +105,18 @@ st.caption("Ask things like: 'Agla blog kab hai?', 'Kitne blogs publish ho chuke
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+def get_groq_api_key():
+    # Streamlit Cloud par: Settings > Secrets se milega
+    try:
+        if "GROQ_API_KEY" in st.secrets:
+            return st.secrets["GROQ_API_KEY"]
+    except Exception:
+        pass
+    # Local computer par: .env file se milega
+    return os.environ.get("GROQ_API_KEY")
+
+
+client = Groq(api_key=get_groq_api_key())
 
 
 def build_context():
